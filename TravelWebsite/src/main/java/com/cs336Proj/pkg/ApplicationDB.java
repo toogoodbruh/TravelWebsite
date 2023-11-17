@@ -1,4 +1,4 @@
-package com.cs336.pkg;
+package com.cs336Proj.pkg;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,9 +13,16 @@ public class ApplicationDB {
 	public Connection getConnection(){
 		
 		//Create a connection string
-		String connectionUrl = "jdbc:mysql://localhost:3306/TravelWebsite";
+		String connectionUrl = "jdbc:mysql://localhost:3306/TravelWebsiteSQL";
 		Connection connection = null;
 		
+		try {
+			//Create a connection to your DB
+			connection = DriverManager.getConnection(connectionUrl,"root", "12345678");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 			//Load JDBC driver - the interface standardizing the connection procedure. Look at WEB-INF\lib for a mysql connector jar file, otherwise it fails.
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -36,7 +43,6 @@ public class ApplicationDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return connection;
 		
 	}
