@@ -16,13 +16,7 @@ public class ApplicationDB {
 		String connectionUrl = "jdbc:mysql://localhost:3306/TravelWebsiteSQL";
 		Connection connection = null;
 		
-		try {
-			//Create a connection to your DB
-			connection = DriverManager.getConnection(connectionUrl,"root", "12345678");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		try {
 			//Load JDBC driver - the interface standardizing the connection procedure. Look at WEB-INF\lib for a mysql connector jar file, otherwise it fails.
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
